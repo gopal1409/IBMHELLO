@@ -8,4 +8,7 @@ node {
     stage('Build docker image'){
         sh 'docker build -t gopal1409/myapp:1.0.0 .'
     }
+    stage('Dangling Images'){
+        sh 'docker system prune -af'
+    }
 }
