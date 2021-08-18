@@ -2,4 +2,7 @@ node {
     stage('SCM Checkout'){
         git 'https://github.com/javahometech/my-app'
     }
+    stage('MVN Pacakage'){
+        sh "mvn clean package"
+    }
 }
