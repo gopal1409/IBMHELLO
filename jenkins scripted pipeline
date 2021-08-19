@@ -6,13 +6,13 @@ node {
         sh "mvn clean package"
     }
     stage('Build docker image'){
-        sh 'docker build -t gopal1409/myapp:1.0.0 .'
+        sh 'docker build -t gopal1409/myapp:$BUILD_NUMBER .'
     }
     stage('Push docker image'){
         withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubpwd')]) {
         sh 'docker login -u gopal1409 -p ${dockerhubpwd}'
       }
-      sh 'docker push gopal1409/myapp:1.0.0'  
+      sh 'docker push gopal1409/myapp:$BUILD_NUMBER'  
     }
 
 }
