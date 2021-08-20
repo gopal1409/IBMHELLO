@@ -34,4 +34,8 @@ EOF
   292  mkdir -p /etc/systemd/system/docker.service.d
   293  systemctl daemon-reload
   294  systemctl restart docker
+  
+  How to intialized the Kubernetes Master Cluster
+   kubeadm init --pod-network-cidr=192.168.0.0/16
+  
 
